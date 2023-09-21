@@ -41,11 +41,9 @@ Follow these steps to set up your development environment and deploy the CDK sta
 
 4. ### Usage:
 
-   Once the CDK stack is deployed, you can use the following endpoints:
+   Once the CDK stack is deployed, you will see the API endpoint in your terminal.
 
-   #### `*` Generate URL Endpoint (GET)
-
-   To generate a pre-signed URL for uploading a file to the S3 bucket, you can use the API endpoint that was generated after deployment.
+   To generate a pre-signed URL for uploading a file to the S3 bucket, you can use this API endpoint that was generated.
 
    ```python
    if __name__ == "__main__":
