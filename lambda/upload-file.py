@@ -20,24 +20,6 @@ def handler(event, context):
             Body=file_data,
         )
 
-        response = table.put_item(
-            Item={
-                'file_name': file_name,
-                'file_data': file_data
-            }
-        )
-
-        if response['ResponseMetadata']['HTTPStatusCode'] == 200:
-            return {
-                'statusCode': 200,
-                'body': json.dumps({'message': 'File uploaded and data inserted into DynamoDB successfully'}),
-            }
-        else:
-            return {
-                'statusCode': 500,
-                'body': json.dumps({'message': 'Error uploading file or inserting data into DynamoDB'}),
-            }
-
     except Exception as e:
         return {
             'statusCode': 500,
