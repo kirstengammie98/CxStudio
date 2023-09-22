@@ -1,5 +1,4 @@
 import requests
-import json
 
 def upload_file(file_name, file_data, generated_url_endpoint):
     generated_url_response = requests.get(generated_url_endpoint, params={'file_name': file_name})
