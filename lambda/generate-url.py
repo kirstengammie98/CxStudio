@@ -6,7 +6,7 @@ def handler(event, context):
     try:
         s3 = boto3.client('s3')
         bucket_name = os.environ['BUCKET_NAME']
-        object_key = event['queryStringParameters']['file_name']
+        object_key = event['queryStringParameters']['id']
         expiration = 60*60*5  
 
         url = s3.generate_presigned_url(

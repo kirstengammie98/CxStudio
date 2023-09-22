@@ -1,7 +1,7 @@
 import requests
 
-def upload_file(file_name, file_data, generated_url_endpoint):
-    generated_url_response = requests.get(generated_url_endpoint, params={'file_name': file_name})
+def upload_file(id, file_data, generated_url_endpoint):
+    generated_url_response = requests.get(generated_url_endpoint, params={'id': id})
     if generated_url_response.status_code != 200:
         print("Error generating pre-signed URL")
         return
@@ -15,8 +15,8 @@ def upload_file(file_name, file_data, generated_url_endpoint):
         print("Error uploading file")
 
 if __name__ == "__main__":
-    file_name = "example.txt"  
+    id = "example.txt"  
     file_data = b"Hello, World!" 
     generated_url_endpoint = "https://dgj7x94yt4.execute-api.us-east-1.amazonaws.com/prod/generate-url"
 
-    upload_file(file_name, file_data, generated_url_endpoint)
+    upload_file(id, file_data, generated_url_endpoint)
