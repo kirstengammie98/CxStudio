@@ -12,12 +12,12 @@ def handler(event, context):
         bucket_name = os.environ['BUCKET_NAME']
         request_body = json.loads(event['body'])
         id = request_body['id']
-        file_data = request_body['file_data']
+        file_data = json.dumps(request_body['file_data'])
 
         s3.put_object(
             Bucket=bucket_name,
             Key=id,
-            Body=file_data,
+            Body=file_data.encode('utf-8'),
         )
 
         response = table.put_item(
