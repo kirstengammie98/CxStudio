@@ -8,8 +8,8 @@ This project creates a CDK deployment that provisions an AWS API Gateway, S3 Buc
 
 Ensure you have the following prerequisites installed and configured:
 
-- [Node.js and npm](https://nodejs.org/) (Node.js version >= 14)
-- [AWS CLI](https://aws.amazon.com/cli/) and configure it with your AWS credentials/
+- [Node.js and npm](https://nodejs.org/)
+- [AWS CLI](https://aws.amazon.com/cli/) and configure it with your AWS credentials
 - [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html) installed globally by running: `npm install -g aws-cdk`
 
 ## Setup
@@ -20,7 +20,7 @@ Follow these steps to set up your development environment and deploy the CDK sta
 
    ```bash
    git clone https://github.com/kirstengammie98/CxStudio.git
-   cd CxStudio
+   cd /path/to/CxStudio
    ```
 
 2.  ### Install Dependencies:
@@ -49,13 +49,13 @@ Follow these steps to set up your development environment and deploy the CDK sta
    if __name__ == "__main__":
       file_name = "example.txt"
       file_data = b"Hello, World!" 
-      generate_url_endpoint = "YOUR_GENERATE_URL_ENDPOINT_HERE"
+      generate_url_endpoint = "YOUR_GENERATED_URL_ENDPOINT_HERE/generate-url"
       upload_file(file_name, file_data, generate_url_endpoint)
    ```
 
-   Replace `"YOUR_GENERATE_URL_ENDPOINT_HERE"` with the actual URL of your API Gateway's /generate-url resource.
+   In the `upload_script.py` file, replace `"YOUR_GENERATED_URL_ENDPOINT_HERE"` with the actual URL of your API Gateway's /generate-url resource.
 
-   Make sure to have the necessary Python packages (requests, boto3) installed for your client script to work.
+   Make sure to have the necessary Python packages (requests, boto3) installed for your upload script to work.
 
 5. ### Run the Python Client:
 
