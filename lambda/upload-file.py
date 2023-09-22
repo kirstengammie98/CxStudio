@@ -11,18 +11,18 @@ def handler(event, context):
         s3 = boto3.client('s3')
         bucket_name = os.environ['BUCKET_NAME']
         request_body = json.loads(event['body'])
-        id = request_body['id']
-        file_data = json.dumps(request_body['file_data'])
+        file_name = request_body['file_name']
+        file_data = request_body['file_data']
 
         s3.put_object(
             Bucket=bucket_name,
-            Key=id,
-            Body=file_data.encode('utf-8'),
+            Key=file_name,
+            Body=file_data,
         )
 
         response = table.put_item(
             Item={
-                'id': id,
+                'file_name': file_name,
                 'file_data': file_data
             }
         )
